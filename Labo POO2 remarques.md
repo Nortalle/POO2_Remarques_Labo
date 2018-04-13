@@ -5,17 +5,63 @@
 ### Erreur
 
 ```c++
-int main(int argc, char** argv)
+#include "Matrix.h"
+#include <iostream>
+								  //1
+
+using namespace std;
+
+int main(int argc, char** argv) {	 //2
+    Matrix m = Matrix(5);
+    cout << m << "\n";				//3
+    
+    Matrix n = Matrix(4);
+    
+    try {
+        m.and(n);
+    } catch(std::runtime& e){		 //4
+        cout << "coucou" << e.what();
+    }
+    
+    return 0;						//5
+}
 ```
 
 ### Remarque
 
-Si les arguments ne sont pas utilisés dans le labo, ne pas les mettre
+Il faut inclure la librairie `stdexcept`du moment que l'on touche aux exceptions.
+
+Si les arguments ne sont pas utilisés dans le labo, ne pas les mettre.
+
+Il faut utiliser `endl` au lieu de `\n`.
+
+L'exception doit être reçu en constante.
+
+Retourner `EXIT_SUCCESS` 
 
 ### Solution
 
 ```c++
-int main()
+#include "Matrix.h"
+#include <iostream>
+#include <stdexcept>
+
+using namespace std;
+
+int main()) {
+    Matrix m = Matrix(5);
+    cout << m << endl;
+    
+    Matrix n = Matrix(4);
+    
+    try {
+        m.and(n);
+    } catch(const std::runtime& e){}
+        cout << "coucou" << e.what();
+    }
+    
+    return EXIT_SUCCESS;
+}
 ```
 
 
@@ -24,11 +70,13 @@ int main()
 
 ### Erreur
 
-```
-
+```c++
+Matrix(const size_t& size, const bool& randomize);
 ```
 
 ### Remarque
+
+Pas besoin pour les types primitifs(Sauf si nous voulons en modifier le contenu)
 
 ### Solution
 
