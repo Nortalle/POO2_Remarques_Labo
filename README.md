@@ -6,10 +6,10 @@ Avec les remarques de tout le monde, la note de 6 est assurée
 
 Pour chaque Exemple le format est le même 
 
-##Exemple
-###Erreur
+## Exemple
+### Erreur
 Le code de l'erreur signalée
-###Remarque
+### Remarque
 Remarque de l'assistant ou générale de l'erreur
-###Solution
+### Solution
 Le code de la solution 
