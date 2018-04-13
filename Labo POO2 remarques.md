@@ -8,7 +8,6 @@
 #include "Matrix.h"
 #include <iostream>
 								  //1
-
 using namespace std;
 
 int main(int argc, char** argv) {	 //2
@@ -35,7 +34,7 @@ Si les arguments ne sont pas utilisés dans le labo, ne pas les mettre.
 
 Il faut utiliser `endl` au lieu de `\n`.
 
-L'exception doit être reçu en constante.
+L'exception doit être reçue en constante.
 
 Retourner `EXIT_SUCCESS` 
 
@@ -64,8 +63,6 @@ int main()) {
 }
 ```
 
-
-
 ## Exemple 2
 
 ### Erreur
@@ -80,17 +77,39 @@ Pas besoin pour les types primitifs(Sauf si nous voulons en modifier le contenu)
 
 ### Solution
 
+```c++
+Matrix(size_t size, bool randomize);
+```
+
 ## Exemple 3
 
 ### Erreur
 
-```
+```c++
+Matrix* perform(const Operation& operation, const Matrix& m1, const Matrix& m2);
 
+Matrix* updateAnd(const Matrix& other);
+
+Matrix* updateXor(const Matrix& other);
+
+Matrix* updateOr(const Matrix& other);
 ```
 
 ### Remarque
 
+WHAT
+
 ### Solution
+
+```c++
+Matrix& perform(const Operation& operation, const Matrix& m1, const Matrix& m2);
+
+Matrix& updateAnd(const Matrix& other);
+
+Matrix& updateXor(const Matrix& other);
+
+Matrix& updateOr(const Matrix& other);
+```
 
 # Labo2 - String
 
@@ -120,7 +139,7 @@ const char* asCharArray() const;
 ### Erreur
 
 ```c++
-String Strin::operator+(const String &other){
+String String::operator+(const String &other){
     String newString(this->value); // value est l'attribut char* de notre String
     newString.append(other);
     return newString;
@@ -134,7 +153,7 @@ Il y a mieux à faire
 ### Solution
 
 ```c++
-String Strin::operator+(const String &other){
+String String::operator+(const String &other){
 	return String(*this).append(other);
 }
 ```
@@ -211,7 +230,7 @@ static const char* DOUBLE_FORMAT = "%g"
 
 ### Remarque
 
-Si `value == string`vous perdez les données. C'est comme un opérateur d'affectation, il faut vérifier que le paramètre ne soit pas l'objet courant
+Dans `String::replace`, Si `value == string` vous perdez les données. C'est comme un opérateur d'affectation, il faut vérifier que le paramètre ne soit pas l'objet courant
 
 ### Solution
 
